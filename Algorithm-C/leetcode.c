@@ -39,27 +39,92 @@ void yanghui_triangle(int rows)
     }
 }
 
+
+#define maxsize 100
+typedef struct Stack{
+    char data[maxsize];
+    int top;
+}Stack;
+
+int push(Stack *st, char str){
+    if (st->top == maxsize-1) {//满栈
+        return 1;
+    }
+    ++st->top;
+    st->data[st->top] = str;
+    return 0;
+}
+int pop(Stack *st, char str){
+    if (st->top == -1) {//空栈
+        return 1;
+    }
+    if ( !((str == ')'&&st->data[st->top]=='(')||(str == ']'&&st->data[st->top]=='[')||(str == '}'&&st->data[st->top]=='{')) ) {
+        return 1;
+    }
+    st->data[st->top] = '\0';
+    --st->top;
+    
+    return 0;
+}
 int effective_brackets(char arr[], int size)
 {
-    if (size <= 0 || size % 2 == 1) {
+    Stack st = {"",-1};
+    int result = 0;
+    for (int i = 0; i < size; i++) {
+        switch (arr[i]) {
+            case '(':
+                result = push(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+            case '[':
+                result = push(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+            case '{':
+                result = push(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+                
+                
+            case ')':
+                result = pop(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+            case ']':
+                result = pop(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+            case '}':
+                result = pop(&st, arr[i]);
+                if (result == 1) {
+                    printf("不是 有效括号");
+                    return 1;
+                }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    if (st.top > -1) {
         printf("不是 有效括号");
         return 1;
     }
-//    int falg = 0;
-//    for (int i = 0; i < size; i+=2) {
-//        if (!((arr[i] == '(' && arr[i+1] == ')')||(arr[i] == '{' && arr[i+1] == '}')||(arr[i] == '[' && arr[i+1] == ']'))) {
-//            falg = 1;
-//            break;
-//        }
-//    }
-//    if (falg == 1) {
-//        for (int j = 0; j < size/2; j++) {
-//            if (!((arr[j] == '(' && arr[size-j-1] == ')')||(arr[j] == '{' && arr[size-j-1] == '}')||(arr[j] == '[' && arr[size-j-1] == ']'))) {
-//                    printf("不是 有效括号");
-//                    return 1;
-//            }
-//        }
-//    }
     printf("是 有效括号");
     return 0;
 }

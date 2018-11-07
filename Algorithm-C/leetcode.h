@@ -76,5 +76,7 @@ void yanghui_triangle(int rows);
  
  输入: "{[]}"
  输出: true
+ 
+ 分析 : 利用栈性质,遇到"([{"push, 遇到")]}"从栈顶pop
  */
 int effective_brackets(char arr[], int size);

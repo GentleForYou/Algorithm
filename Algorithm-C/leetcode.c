@@ -7,6 +7,7 @@
 //
 
 #include "leetcode.h"
+#include <math.h>
 
 int max_profit(int arr[], int size)
 {
@@ -127,4 +128,28 @@ int effective_brackets(char arr[], int size)
     }
     printf("是 有效括号");
     return 0;
+}
+
+int surfaceArea(int** grid, int gridRowSize, int gridColSizes)
+{
+    int sum = 0,a = 0,b = 0, c = 0, d = 0,Va = 0,Vb = 0, Vc = 0, Vd = 0;
+    for (int i = 0; i < gridRowSize; i++) {
+        for (int j = 0; j < gridColSizes; j++) {
+            if (*((int *)grid+gridColSizes*i+j) > 0) {
+                sum += 2;
+                //前后左右
+                a = j <  gridColSizes-1 ? *((int *)grid+gridColSizes*i+j+1) : 0;
+                b = j >  0 ? *((int *)grid+gridColSizes*i+j-1) : 0;
+                c = i >  0 ? *((int *)grid+gridColSizes*(i-1)+j) : 0;
+                d = i <  gridRowSize-1 ? *((int *)grid+gridColSizes*(i+1)+j) : 0;
+                Va = *((int *)grid+gridColSizes*i+j) - a > 0 ? *((int *)grid+gridColSizes*i+j) - a : 0;
+                Vb = *((int *)grid+gridColSizes*i+j) - b > 0 ? *((int *)grid+gridColSizes*i+j) - b : 0;
+                Vc = *((int *)grid+gridColSizes*i+j) - c > 0 ? *((int *)grid+gridColSizes*i+j) - c : 0;
+                Vd = *((int *)grid+gridColSizes*i+j) - d > 0 ? *((int *)grid+gridColSizes*i+j) - d : 0;
+                sum += (Va+Vb+Vc+Vd);
+            }
+        }
+    }
+    printf("表面积之和为 : %d",sum);
+    return sum;
 }

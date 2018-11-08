@@ -57,6 +57,10 @@ void algorithm(){
 //    max_profit(arr, 5);
 //    yanghui_triangle(5);
     
-    char str[] = "{[]()}";
-    effective_brackets(str, 6);
+//    char str[] = "{[]()}";
+//    effective_brackets(str, 6);
+    
+    int grid[2][2] = {{1,0},{0,2}};
+    
+    surfaceArea((int**)grid, 2, 2);
 }

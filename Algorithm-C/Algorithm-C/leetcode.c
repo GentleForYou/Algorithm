@@ -41,7 +41,7 @@ void yanghui_triangle(int rows)
 }
 
 
-#define maxsize 100
+#define maxsize 1000000
 typedef struct Stack{
     char data[maxsize];
     int top;
@@ -67,28 +67,29 @@ int pop(Stack *st, char str){
     
     return 0;
 }
-int effective_brackets(char arr[], int size)
+int isValid(char* s)
 {
     Stack st = {"",-1};
     int result = 0;
-    for (int i = 0; i < size; i++) {
-        switch (arr[i]) {
+    int p= 0;
+    while (*(s+p) != '\0') {
+        switch (*(s+p)) {
             case '(':
-                result = push(&st, arr[i]);
+                result = push(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
                 }
                 break;
             case '[':
-                result = push(&st, arr[i]);
+                result = push(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
                 }
                 break;
             case '{':
-                result = push(&st, arr[i]);
+                result = push(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
@@ -97,21 +98,21 @@ int effective_brackets(char arr[], int size)
                 
                 
             case ')':
-                result = pop(&st, arr[i]);
+                result = pop(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
                 }
                 break;
             case ']':
-                result = pop(&st, arr[i]);
+                result = pop(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
                 }
                 break;
             case '}':
-                result = pop(&st, arr[i]);
+                result = pop(&st, *(s+p));
                 if (result == 1) {
                     printf("不是 有效括号");
                     return 1;
@@ -121,7 +122,9 @@ int effective_brackets(char arr[], int size)
             default:
                 break;
         }
+        p++;
     }
+
     if (st.top > -1) {
         printf("不是 有效括号");
         return 1;

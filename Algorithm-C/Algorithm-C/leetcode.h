@@ -79,7 +79,7 @@ void yanghui_triangle(int rows);
  
  分析 : 利用栈性质,遇到"([{"push, 遇到")]}"从栈顶pop
  */
-int effective_brackets(char arr[], int size);
+int isValid(char* s);
 
 /*
  三维形体的表面积

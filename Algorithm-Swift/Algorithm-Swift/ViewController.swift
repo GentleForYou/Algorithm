@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         let leetcode = LeetCode();
         
-        print("%ld",leetcode.isMonotonic([11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5]));
+//        print("%ld",leetcode.isMonotonic([11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5]));
         
         
     }

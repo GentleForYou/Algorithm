@@ -15,6 +15,7 @@
 		EA1000262194324B00F5A560 /* Algorithm_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1000252194324B00F5A560 /* Algorithm_SwiftTests.swift */; };
 		EA1000312194324B00F5A560 /* Algorithm_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1000302194324B00F5A560 /* Algorithm_SwiftUITests.swift */; };
 		EA10003F219435DD00F5A560 /* LeetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA10003E219435DD00F5A560 /* LeetCode.swift */; };
+		EA1353A121956B1A00E104D7 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1353A021956B1A00E104D7 /* TreeNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EA1000302194324B00F5A560 /* Algorithm_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm_SwiftUITests.swift; sourceTree = "<group>"; };
 		EA1000322194324B00F5A560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA10003E219435DD00F5A560 /* LeetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode.swift; sourceTree = "<group>"; };
+		EA1353A021956B1A00E104D7 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				EA1000102194324A00F5A560 /* AppDelegate.swift */,
 				EA1000122194324A00F5A560 /* ViewController.swift */,
 				EA10003E219435DD00F5A560 /* LeetCode.swift */,
+				EA1353A021956B1A00E104D7 /* TreeNode.swift */,
 				EA1000142194324A00F5A560 /* Main.storyboard */,
 				EA1000172194324B00F5A560 /* Assets.xcassets */,
 				EA1000192194324B00F5A560 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				EA1000132194324A00F5A560 /* ViewController.swift in Sources */,
 				EA1000112194324A00F5A560 /* AppDelegate.swift in Sources */,
 				EA10003F219435DD00F5A560 /* LeetCode.swift in Sources */,
+				EA1353A121956B1A00E104D7 /* TreeNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -496,6 +496,83 @@ class LeetCode: NSObject {
         return sum
         
     }
-    
+    /*
+     在二维平面上计算出两个由直线构成的矩形重叠后形成的总面积。
+     
+     每个矩形由其左下顶点和右上顶点坐标表示，如图所示。
+     
+     Rectangle Area
+     
+     示例:
+     
+     输入: -3, 0, 3, 4, 0, -1, 9, 2
+     输出: 45
+     说明: 假设矩形面积不会超出 int 的范围。
+     */
+    func computeArea(_ A: Int, _ B: Int, _ C: Int, _ D: Int, _ E: Int, _ F: Int, _ G: Int, _ H: Int) -> Int {
+        
+        let a = abs(C-A)*abs(D-B)
+        let b = abs(G-E)*abs(H-F)
+        var leftX1=0,leftX2=0,rightX1=0,rightX2=0,topY1=0,topY2=0,downY1=0,downY2=0,w=0,h=0
+        if A < C {
+            leftX1 = A
+            rightX1 = C
+        } else {
+            leftX1 = C
+            rightX1 = A
+        }
+        if E < G {
+            leftX2 = E
+            rightX2 = G
+        } else {
+            leftX2 = G
+            rightX2 = E
+        }
+        if B < D {
+            downY1 = B
+            topY1 = D
+        } else {
+            downY1 = D
+            topY1 = B
+        }
+        if F < H {
+            downY2 = F
+            topY2 = H
+        } else {
+            downY2 = H
+            topY2 = F
+        }
+        if leftX2 >= rightX1 || leftX1 >= rightX2 || downY2 >= topY1 || downY1 >= topY2  {
+            return a+b
+        }
+        if leftX2 >= leftX1 && leftX2 <= rightX1 {
+            if rightX2 <= rightX1 {
+                w = rightX2 - leftX2
+            } else {
+                w = rightX1 - leftX2
+            }
+        } else {
+            if rightX1 <= rightX2 {
+                w = rightX1 - leftX1
+            } else {
+                w = rightX2 - leftX1
+            }
+        }
+        if downY2 >= downY1 && downY2 <= topY1 {
+            if topY2 <= topY1 {
+                h = topY2 - downY2
+            } else {
+                h = topY1 - downY2
+            }
+        } else {
+            if topY1 <= topY2 {
+                h = topY1 - downY1
+            } else {
+                h = topY2 - downY1
+            }
+        }
+        return a+b-w*h
+        
+    }
     
 }

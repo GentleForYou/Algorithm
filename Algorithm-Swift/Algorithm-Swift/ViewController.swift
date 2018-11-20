@@ -23,7 +23,8 @@ class ViewController: UIViewController {
 //        print(leetcode.numRescueBoats([3,5,3,4], 5))
 //        print(leetcode.projectionArea([[2,2,2],[2,1,2],[2,2,2]]))
 //        print(leetcode.stoneGame([3,2,10,4]))
-        print(leetcode.countPrimes(6))
+//        print(leetcode.countPrimes(6))
+        print(leetcode.computeArea(-2, -2, 2, 2, 3, 3, 4, 4))
         
     }
 

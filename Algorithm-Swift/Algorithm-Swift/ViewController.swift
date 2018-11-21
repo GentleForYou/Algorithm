@@ -25,7 +25,13 @@ class ViewController: UIViewController {
 //        print(leetcode.stoneGame([3,2,10,4]))
 //        print(leetcode.countPrimes(6))
 //        print(leetcode.computeArea(-2, -2, 2, 2, 3, 3, 4, 4))
-        print(leetcode.numSquares(13))
+//        print(leetcode.numSquares(13))
+        print(leetcode.minimumTotal([
+            [2],
+            [3,4],
+            [6,5,7],
+            [4,1,8,3]
+            ]))
         
     }
 

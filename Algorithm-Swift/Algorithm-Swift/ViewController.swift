@@ -33,8 +33,8 @@ class ViewController: UIViewController {
 //            [4,1,8,3]
 //            ]))
 //        print(leetcode.rob([2,1,1,2]))
-        print(leetcode.maxProfit([7,1,5,3,6,4]))
-        
+//        print(leetcode.maxProfit([7,1,5,3,6,4]))
+        print(leetcode.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
     }
 
 

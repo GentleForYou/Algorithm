@@ -107,33 +107,45 @@ int * merge_sort(int arr[], int reg[], int start, int end)
     
     return arr;
 }
-
-
-int * quick_sort_recursive(int arr[], int start, int end)
+/*
+ 快排方法:
+ 1.找出首,尾,中,三个数的中位数,将其与尾数交换
+ 2.用双指针,i指向d头,jd指向尾-1的数
+ */
+int * quick_sort_recursive(int arr[], int low, int high)
 {
-    if (start >= end) {
+    if (low >= high) {
         return arr;
     }
-    int mid = arr[end];
-    int left = start,right = end-1;
-    while (left < right) {
-        while (arr[left] < mid && left < right) {
-            left++;
-        }
-        while (arr[right] >= mid && left < right) {
-            right--;
-        }
-        swap(&arr[left], &arr[right]);
-    }
-    
-    if (arr[left] > arr[end]) {
-        swap(&arr[left], &arr[end]);
+    int i = low, j = high, mid = (high-low)/2;
+    //三位数取中为基准数
+    if ((arr[low]<arr[mid]&&arr[mid]<arr[high])||(arr[high]<arr[mid]&&arr[mid]<arr[low])) {
+        mid = mid;
+    } else if ((arr[mid]<arr[low]&&arr[low]<arr[high])||(arr[high]<arr[low]&&arr[low]<arr[mid])) {
+        mid = low;
     } else {
-        left++;
+        mid = high;
     }
-    if (left) {
-        quick_sort_recursive(arr, start, left-1);
+    //将基准数暂时放在末尾
+    if (mid != high) {
+        swap(&arr[mid], &arr[high]);
+        mid = high;
     }
-    quick_sort_recursive(arr, left+1, end);
+    j = high-1;
+    while (i < j) {
+        if (arr[i] < arr[mid]) {
+            i++;
+        } else if (arr[j] > arr[mid]) {
+            j--;
+        } else {
+            swap(&arr[i], &arr[j]);
+            i++;
+        }
+    }
+    //将尾部的基准数交换回来
+    swap(&arr[i], &arr[mid]);
+    //分治思想递归
+    quick_sort_recursive(arr, low, i-1);
+    quick_sort_recursive(arr, i+1, high);
     return arr;
 }

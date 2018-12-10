@@ -29,4 +29,4 @@ int * shell_sort(int arr[], int size);
 int * merge_sort(int arr[], int reg[], int start, int end);
 
 //快速排序
-int * quick_sort_recursive(int arr[], int start, int end);
+int * quick_sort_recursive(int arr[], int low, int high);

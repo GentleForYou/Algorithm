@@ -13,7 +13,7 @@
 //#include "prime_number.h"
 //#include "triangle.h"
 //#include "overturn.h"
-#include "sorting_algorithm.h"
+//#include "sorting_algorithm.h"
 //#include "algorithm_ practice.h"
 //#include "leetcode.h"
 
@@ -31,7 +31,7 @@ void algorithm(){
 //    printf("%s",overturn(greeting, 5));
     
       //排序算法
-    int arr[] = { 22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 62 };
+//    int arr[] = { 22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 62 };
 //    int *arr1 = bubbleSort(arr, 14);
 //    int *arr1 = selection_sort(arr, 14);
 //    int *arr1 = insertion_sort(arr, 14);
@@ -41,10 +41,10 @@ void algorithm(){
 //    int *arr1 = merge_sort(arr, reg, 0, 13);
 //
 //    int arr[] = { 4,5,7,8,1,2,3,6};
-    int *arr1 = quick_sort_recursive(arr, 0, 13);
-    for (int i = 0; i < 14; i++) {
-        printf("%d ",arr1[i]);
-    }
+//    int *arr1 = quick_sort_recursive(arr, 0, 13);
+//    for (int i = 0; i < 14; i++) {
+//        printf("%d ",arr1[i]);
+//    }
     
      //算法练习
 //    square_number();

@@ -111,3 +111,24 @@ void creat_linked_list()
 {
     
 }
+void swapaa(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void theWholeArrangement(int arr[],int k, int n)
+{
+    if (k == n) {
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+        return;
+    } else {
+        for (int i = k;i < n; i++) {
+            swapaa(&arr[k], &arr[i]);
+            theWholeArrangement(arr, k+1, n);
+            swapaa(&arr[k], &arr[i]);
+        }
+    }
+}

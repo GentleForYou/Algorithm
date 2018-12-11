@@ -29,3 +29,5 @@ void perfect_number(void);
 void number_off(int n, int m);
 /*创建链表*/
 void creat_linked_list(void);
+/*全排列*/
+void theWholeArrangement(int arr[],int k, int n);

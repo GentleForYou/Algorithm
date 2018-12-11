@@ -14,7 +14,7 @@
 //#include "triangle.h"
 //#include "overturn.h"
 //#include "sorting_algorithm.h"
-//#include "algorithm_ practice.h"
+#include "algorithm_ practice.h"
 //#include "leetcode.h"
 
 //算法
@@ -45,6 +45,8 @@ void algorithm(){
 //    for (int i = 0; i < 14; i++) {
 //        printf("%d ",arr1[i]);
 //    }
+    int arr[] = {1,2,3,4};
+    theWholeArrangement(arr, 0, 4);
     
      //算法练习
 //    square_number();

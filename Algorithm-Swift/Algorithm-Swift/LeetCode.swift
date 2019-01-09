@@ -764,7 +764,61 @@ class LeetCode: NSObject {
         }
         return a == x ? true : false
     }
-    
+    /*两数之和*/
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var dic : [Int : Int] = [:]
+        for (i,item) in nums.enumerated() {
+            dic.updateValue(i, forKey: item)
+        }
+        for (j,item) in nums.enumerated() {
+            if (dic.keys.contains(target-item) && j != dic[target-item]){
+                return [j,dic[target-item] ?? -1]
+            }
+        }
+       return []
+    }
+    /*寻找两个有序数组的中位数*/
+    func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+        
+        var A = nums1,B = nums2
+        if nums1.count > nums2.count {
+            A = nums2
+            B = nums1
+        }
+        var iMin = 0,iMax = A.count,allLen = (A.count+B.count+1)/2
+        while iMin <= iMax {
+            let i = (iMin+iMax)/2
+            let j = allLen-i
+            if i < iMax && B[j-1] > A[i] {//i太小
+                iMin = i + 1
+            } else if i > iMin && A[i-1] > B[j] {//i太大
+                iMax = i - 1
+            } else {
+                var maxLeft = 0
+                if i == 0 {
+                    maxLeft = B[j-1]
+                } else if j == 0 {
+                    maxLeft = A[i-1]
+                } else {
+                    maxLeft = max(A[i-1], B[j-1])
+                }
+                if (A.count + B.count) % 2 == 1 {
+                    return Double(maxLeft)
+                }
+                var minRight = 0
+                if i == A.count {
+                    minRight = B[j]
+                } else if j == B.count {
+                    minRight = A[i]
+                } else {
+                    minRight = min(B[j], A[i])
+                }
+                return Double((maxLeft + minRight))/2.0
+            }
+        }
+        return 0.0
+        
+    }
 }
 
 

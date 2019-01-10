@@ -37,7 +37,8 @@ class ViewController: UIViewController {
 //        print(leetcode.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
 //        print(leetcode.isPalindrome(121))
 //        print(leetcode.twoSum([2, 7, 11, 15], 9))
-        print(leetcode.findMedianSortedArrays([1,3], [2]))
+//        print(leetcode.findMedianSortedArrays([1,3], [2]))
+        print(leetcode.longestPalindrome("cccc"))
     }
 
 

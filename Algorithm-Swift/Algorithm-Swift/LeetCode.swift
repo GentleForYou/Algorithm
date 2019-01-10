@@ -819,6 +819,41 @@ class LeetCode: NSObject {
         return 0.0
         
     }
+    /*最长回文子串*/
+    func longestPalindrome(_ s: String) -> String {
+        /*动态规划算法
+         if s.count > 0 {
+            if s.count == 1 {
+                return s
+            } else if s.count == 2 {
+                return s[s.index(s.startIndex, offsetBy: 0)] == s[s.index(s.startIndex, offsetBy: 1)] ? s : String(s[s.index(s.startIndex, offsetBy: 0)])
+            }
+            //二维数组,dp[i,j]=1,代表dp[i,j]是回文串
+            var start = 0, longest = 1
+            var dp = [[Int]](repeating: [Int](repeating: 0, count: s.count), count: s.count)
+            for i in 0...s.count-1 {
+                dp[i][i] = 1
+                if i < s.count-1 && s[s.index(s.startIndex, offsetBy: i)] == s[s.index(s.startIndex, offsetBy: i+1)] {
+                    dp[i][i+1] = 1
+                    start = i
+                    longest = 2
+                }
+            }
+            for l in 3...s.count {//子字符串长度
+                for i in 0...s.count-l {//子字符串起始位置
+                   let j = i+l-1 //子字符串终点位置
+                    if s[s.index(s.startIndex, offsetBy: i)] == s[s.index(s.startIndex, offsetBy: j)] && dp[i+1][j-1] == 1 {
+                        dp[i][j] = 1
+                        start = i
+                        longest = l
+                    }
+                }
+            }
+            return String(s[(s.index(s.startIndex, offsetBy: start)...s.index(s.startIndex, offsetBy: start+longest-1))])
+        }*/
+        //Manacher算法
+        return ""
+    }
 }
 
 

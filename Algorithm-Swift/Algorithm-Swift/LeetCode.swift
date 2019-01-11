@@ -854,6 +854,36 @@ class LeetCode: NSObject {
         //Manacher算法
         return ""
     }
+    /*最小路径和*/
+    func minPathSum(_ grid: [[Int]]) -> Int {
+        if grid.count == 0 && grid[0].count == 0 {
+            return 0
+        } else if grid.count == 1 && grid[0].count == 1 {
+            return grid[0][0]
+        }
+        var dp = [[Int]](repeating: [Int](repeating: 0, count: grid[0].count), count: grid.count)
+        dp[0][0] = grid[0][0]
+        //第一行
+        for j in 1...grid[0].count-1 {
+            dp[0][j] = grid[0][j] + dp[0][j-1]
+        }
+        if grid.count == 1 {
+            return dp[0][grid[0].count-1]
+        }
+        //第一列
+        for i in 1...grid.count-1 {
+            dp[i][0] = grid[i][0] + dp[i-1][0]
+        }
+        if grid[0].count == 1 {
+            return dp[grid.count-1][0]
+        }
+        for i in 1...grid.count-1 {
+            for j in 1...grid[0].count-1 {
+                dp[i][j] = min(dp[i-1][j],dp[i][j-1])+grid[i][j]
+            }
+        }
+        return dp[grid.count-1][grid[0].count-1]
+    }
 }
 
 

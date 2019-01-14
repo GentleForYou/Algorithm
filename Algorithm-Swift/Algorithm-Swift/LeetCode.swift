@@ -884,6 +884,27 @@ class LeetCode: NSObject {
         }
         return dp[grid.count-1][grid[0].count-1]
     }
+    /*零钱兑换*/
+    func coinChange(_ coins: [Int],_ amount: Int) -> Int {
+        if coins.count == 0 {
+            return -1
+        }
+        if amount <= 0 {
+            return 0
+        }
+        var dp = [Int](repeating: amount+1, count: amount+1)
+        dp[0] = 0
+        let coins1 = coins.sorted()
+        for i in 1...amount {
+            for j in 0...coins1.count-1 {
+                if i >= coins1[j] {
+                    dp[i] = min(dp[i], dp[i-coins1[j]]+1)
+                }
+            }
+        }
+        return  dp[amount] > amount ? -1 : dp[amount]
+    }
 }
+
 
 

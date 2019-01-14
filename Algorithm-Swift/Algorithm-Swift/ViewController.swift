@@ -39,7 +39,8 @@ class ViewController: UIViewController {
 //        print(leetcode.twoSum([2, 7, 11, 15], 9))
 //        print(leetcode.findMedianSortedArrays([1,3], [2]))
 //        print(leetcode.longestPalindrome("cccc"))
-        print(leetcode.minPathSum([[0]]))
+//        print(leetcode.minPathSum([[0]]))
+        print(leetcode.coinChange([1], 0))
     }
 
 
